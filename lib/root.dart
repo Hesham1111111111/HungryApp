@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/resources/app_colors.dart';
-import 'package:hungry/feachers/auth/presentation/view/profile_view.dart';
-import 'package:hungry/feachers/home/presentation/views/home_view.dart';
-import 'package:hungry/feachers/orderhistory/presentaion/views/order_view.dart';
-import 'feachers/card/presentation/card_view.dart';
+import 'package:hungry/features/auth/presentation/view/profile_view.dart';
+import 'package:hungry/features/home/presentation/views/home_view.dart';
+import 'package:hungry/features/orderhistory/presentaion/views/order_view.dart';
+import 'features/card/presentation/card_view.dart';
 
 class Root extends StatefulWidget {
   Root({super.key});

@@ -3,18 +3,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../resources/app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
-  CustomTextField({
+  const CustomTextField({
     super.key,
     required this.hint,
     required this.controller,
     required this.isPassword,
     this.iconData,
+    this.validator,
   });
 
   final String hint;
   final TextEditingController controller;
   final bool isPassword;
-  IconData? iconData;
+  final IconData? iconData;
+  final String? Function(String?)? validator; // ✅
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -24,16 +26,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
   late bool _obscureText;
 
   @override
-  void _toggelPass() {
+  void initState() {
+    super.initState();
+    _obscureText = widget.isPassword;
+  }
+
+  void _togglePass() {
     setState(() {
       _obscureText = !_obscureText;
     });
-  }
-
-  void initState() {
-    _obscureText = widget.isPassword;
-    setState(() {});
-    super.initState();
   }
 
   @override
@@ -41,12 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: _obscureText,
-      validator: (v) {
-        if (v == null || v.isEmpty) {
-          return "Please fill ${widget.hint} ";
-        }
-        null;
-      },
+      validator: widget.validator, // ✅
       cursorColor: AppColors.primary,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
@@ -61,14 +57,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
         filled: true,
         suffixIcon: widget.isPassword
             ? InkWell(
-                onTap: () {
-                  _toggelPass();
-                },
-                child: Icon(
-                  _obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.primary,
-                ),
-              )
+          onTap: _togglePass,
+          child: Icon(
+            _obscureText ? Icons.visibility_off : Icons.visibility,
+            color: AppColors.primary,
+          ),
+        )
             : Icon(widget.iconData, color: AppColors.primary),
       ),
     );

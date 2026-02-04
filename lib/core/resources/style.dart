@@ -7,6 +7,10 @@ class AppStyle {
     fontSize: 14.sp,
     color: Colors.white,
     fontWeight: FontWeight.w500,
+  );  static TextStyle text24 = TextStyle(
+    fontSize: 14.sp,
+    color: Colors.white,
+    fontWeight: FontWeight.w500,
   );
   static TextStyle text17 = TextStyle(
     fontSize: 17.sp,
