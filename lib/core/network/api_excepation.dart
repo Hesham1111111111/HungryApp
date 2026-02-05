@@ -4,20 +4,34 @@ import 'package:hungry/core/network/api_error.dart';
 class ApiExceptions {
   static ApiError handleError(DioError error) {
     final statusCode = error.response?.statusCode;
-    print(statusCode);
     final data = error.response?.data;
+
     if (data is Map<String, dynamic> && data["message"] != null) {
       return ApiError(message: data["message"]);
-
     }
 
     switch (error.type) {
       case DioErrorType.connectionTimeout:
-        return ApiError(message: "Bad Connection");
+      case DioErrorType.sendTimeout:
+      case DioErrorType.receiveTimeout:
+        return ApiError(message: "Connection Timeout, please try again");
       case DioErrorType.badResponse:
-        return ApiError(message: error.toString());
+        if (statusCode != null) {
+          switch (statusCode) {
+            case 401:
+              return ApiError(message: "Unauthorized");
+            case 404:
+              return ApiError(message: "Not Found");
+            default:
+              return ApiError(message: "Server Error: $statusCode");
+          }
+        }
+        return ApiError(message: "Bad Response: ${error.message}");
+      case DioErrorType.cancel:
+        return ApiError(message: "Request was cancelled");
+      case DioErrorType.unknown:
       default:
-        return ApiError(message: "something went wrong");
+        return ApiError(message: error.message ?? "Something went wrong");
     }
   }
 }

@@ -17,14 +17,12 @@ class CardItemShimmer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // صورة وهمية
             Container(
               width: double.infinity,
               height: 155.h,
               color: Colors.white,
             ),
             Gap(10.h),
-            // اسم المنتج وهمي
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Column(
@@ -36,7 +34,6 @@ class CardItemShimmer extends StatelessWidget {
               ),
             ),
             Gap(10.h),
-            // تقييم وقلب وهمي
             Padding(
               padding: EdgeInsets.all(8.w),
               child: Row(

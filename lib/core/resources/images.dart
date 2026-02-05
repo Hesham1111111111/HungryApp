@@ -11,6 +11,5 @@ class AppImages{
   static const String visa ="assets/images/download.png";
   static const String visaProfile ="assets/images/visaprofile.png";
   static const String  Vector  ="assets/images/Vector.png";
-  static const String  shado  ="assets/images/Ellipse 1.png";
 
 }

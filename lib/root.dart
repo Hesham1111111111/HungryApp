@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/resources/app_colors.dart';
 import 'package:hungry/features/auth/presentation/view/profile_view.dart';
 import 'package:hungry/features/home/presentation/views/home_view.dart';
 import 'package:hungry/features/orderhistory/presentaion/views/order_view.dart';
+import 'features/card/manager/get_cart_manager/get_cart__cubit.dart';
 import 'features/card/presentation/card_view.dart';
 
 class Root extends StatefulWidget {
@@ -42,6 +44,9 @@ class _RootState extends State<Root> {
           currentIndex: currentIndex,
           onTap: (index) {
             setState(() => currentIndex = index);
+            if (index == 1) {
+              context.read<GetCartCubit>().getCart();
+            }
           },
           backgroundColor: Colors.transparent,
           elevation: 0,

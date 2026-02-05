@@ -13,32 +13,19 @@ class CustomProfileText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFormField(
-          controller: controller,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16.sp,
-          ),
-          cursorColor: Colors.white,
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(15.r),
-            ),
-            labelText: label,
-            labelStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 16.sp,
-            ),
-          ),
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: label,
+        filled: true,
+        fillColor: const Color(0xffF6F7FB),
+        contentPadding:
+        const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: BorderSide.none,
         ),
-      ],
+      ),
     );
   }
 }

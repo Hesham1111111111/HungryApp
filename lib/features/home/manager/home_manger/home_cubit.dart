@@ -12,7 +12,6 @@ class HomeProductCubit extends Cubit<HomeProductState> {
 
   List<ProductModel> _allProducts = [];
 
-  /// تحميل كل المنتجات
   Future<void> getHomeProduct() async {
     emit(const LoadingHomeProductState());
 
@@ -27,7 +26,6 @@ class HomeProductCubit extends Cubit<HomeProductState> {
     );
   }
 
-  /// Local Search
   void searchProducts(String query) {
     if (query.trim().isEmpty) {
       emit(SuccessHomeProductState(products: _allProducts));

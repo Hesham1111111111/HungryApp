@@ -52,8 +52,8 @@ class ProfileActions extends StatelessWidget {
                 child:  Center(
                   child: CustomText(
                     text: 'Logout',
-                    weight: FontWeight.w600,
-                    color: AppColors.primary,
+                    weight: FontWeight.w900,
+                    color: Colors.red,
                   ),
                 ),
               ),

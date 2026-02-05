@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/features/checkout/presentaion/views/widget/payment_screen.dart';
 import '../../../../../core/resources/style.dart';
 import '../../../../../core/widget/custom_button.dart';
 
@@ -32,10 +33,17 @@ class TotalPriceSection extends StatelessWidget {
             ],
           ),
           InkWell(
-              onTap: (){
-
-              },
-              child: CustomButton(text: "Pay Now", width: 209.w, height: 70.h)),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => PaymentSuccessScreen()),
+              );
+            },
+            child: Hero(
+              tag: "pay_now_button",
+              child: CustomButton(text: "Pay Now", width: 209.w, height: 70.h),
+            ),
+          ),
         ],
       ),
     );

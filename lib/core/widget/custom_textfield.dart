@@ -16,7 +16,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final bool isPassword;
   final IconData? iconData;
-  final String? Function(String?)? validator; // ✅
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -42,7 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: _obscureText,
-      validator: widget.validator, // ✅
+      validator: widget.validator,
       cursorColor: AppColors.primary,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(

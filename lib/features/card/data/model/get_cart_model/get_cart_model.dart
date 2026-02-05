@@ -12,7 +12,6 @@ class OrderDetailsResponse {
   });
 
   factory OrderDetailsResponse.fromJson(Map<String, dynamic> json) {
-    // نحول الـ Object ل List
     final order = OrderData.fromJson(json['data'] as Map<String, dynamic>);
     return OrderDetailsResponse(
       code: json['code'] as int,

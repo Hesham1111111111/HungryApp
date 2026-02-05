@@ -23,10 +23,10 @@ class BurgerSpiceSlider extends StatelessWidget {
           width: 99.w,
           height: 150.h,
           decoration: BoxDecoration(
-
             image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(AppImages.details)),
+              fit: BoxFit.fill,
+              image: AssetImage(AppImages.details),
+            ),
           ),
         ),
 

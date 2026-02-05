@@ -8,7 +8,7 @@ class RemoveCartCubit extends Cubit<RemoveCartState> {
   RemoveCartCubit(this.removeCartRepo) : super(RemoveCartInitial());
 
   Future<void> removeItem(int id) async {
-    emit(RemoveCartLoading());
+    emit(RemoveCartLoading(itemId: id));
 
     try {
       await removeCartRepo.removeCart(id);

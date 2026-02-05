@@ -64,7 +64,6 @@ class _SplashScreenState extends State<SplashScreen>
         children: [
           SizedBox(height: 200.h),
 
-          /// Logo fade
           FadeTransition(
             opacity: _fadeAnimation,
             child: SvgPicture.asset(AppImages.logo),
@@ -72,7 +71,6 @@ class _SplashScreenState extends State<SplashScreen>
 
           const Spacer(),
 
-          /// Image slide
           SlideTransition(
             position: _slideAnimation,
             child: Image.asset(AppImages.imageSplash),

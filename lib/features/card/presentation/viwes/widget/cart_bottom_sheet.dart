@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/features/card/data/model/get_cart_model/get_cart_model.dart';
 import 'package:hungry/features/card/data/model/get_cart_model/order_data_model.dart';
 import 'package:hungry/features/checkout/presentaion/views/checkout_view.dart';
-import 'package:hungry/features/home/data/model/category_moodle.dart';
 import '../../../../../core/resources/style.dart';
 import '../../../../../core/widget/custom_button.dart';
 

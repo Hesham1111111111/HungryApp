@@ -20,55 +20,43 @@ class ProfileImagePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ImageProvider profileImage;
+    ImageProvider image;
 
+    final state = context.read<AuthCubit>().state;
     if (imagePath != null) {
-      profileImage = FileImage(File(imagePath!));
+      image = FileImage(File(imagePath!));
+    } else if (state is AuthSuccess && state.user.image?.isNotEmpty == true) {
+      image = NetworkImage(state.user.image!);
     } else {
-      final state = context.read<AuthCubit>().state;
-      if (state is AuthSuccess && state.user.image != null && state.user.image!.isNotEmpty) {
-        profileImage = NetworkImage(state.user.image!);
-      } else {
-        profileImage = const AssetImage(AppImages.my);
-      }
+      image = const AssetImage(AppImages.my);
     }
 
-    return Column(
+    return Stack(
+      alignment: Alignment.bottomRight,
       children: [
-        const SizedBox(height: 15),
-        Center(
-          child: Container(
-            width: 140,
-            height: 140,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(70),
-              border: Border.all(width: 4, color: Colors.black87),
-              image: DecorationImage(image: profileImage, fit: BoxFit.cover),
-            ),
+        CircleAvatar(
+          radius: 65,
+          backgroundColor: Colors.white,
+          child: CircleAvatar(
+            radius: 60,
+            backgroundImage: image,
           ),
         ),
-        const SizedBox(height: 15),
-        GestureDetector(
+        InkWell(
           onTap: onPickImage,
           child: Container(
-            alignment: Alignment.center,
-            width: 120,
-            height: 40,
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
+              color: AppColors.primary,
+              shape: BoxShape.circle,
             ),
-            child: Text(
-              "Upload Image",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: AppColors.primary,
-                fontSize: 15,
-              ),
+            child: const Icon(
+              Icons.camera_alt,
+              color: Colors.white,
+              size: 20,
             ),
           ),
         ),
-        const SizedBox(height: 20),
       ],
     );
   }

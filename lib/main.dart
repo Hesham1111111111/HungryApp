@@ -5,7 +5,6 @@ import 'package:hungry/core/di/service_locator.dart';
 
 import 'package:hungry/features/auth/manager/auth_cubit.dart';
 import 'package:hungry/features/card/data/repo/get_cart_repo/get_cart_repo.dart';
-import 'package:hungry/features/card/data/repo/get_cart_repo/get_cart_repo_impl.dart';
 import 'package:hungry/features/card/data/repo/remove_cart_repo/remove_cart_repo.dart';
 import 'package:hungry/features/card/manager/get_cart_manager/get_cart__cubit.dart';
 import 'package:hungry/features/card/manager/remove_cart_manager/remove_cart_cubit.dart';

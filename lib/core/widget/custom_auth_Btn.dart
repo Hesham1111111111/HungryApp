@@ -27,8 +27,8 @@ class CustomAuthBtn extends StatelessWidget {
         height: 55.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          color: color, // إذا gradient غير مستخدم
-          gradient: gradient, // لو موجود يستخدم التدرج
+          color: color,
+          gradient: gradient,
         ),
         child: Center(
           child: Text(

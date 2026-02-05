@@ -14,7 +14,6 @@ class AuthCubit extends Cubit<AuthState> {
 
   final AuthRepo authRepo ;
 
-  // ================= SIGN UP =================
   Future<void> signUp() async {
     try {
       emit(AuthLoading());
@@ -29,7 +28,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  // ================= LOGIN =================
   Future<void> login() async {
     try {
       emit(AuthLoading());
@@ -43,7 +41,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  // ================= GET PROFILE =================
   Future<void> getProfileData() async {
     try {
       emit(AuthLoading());
@@ -57,7 +54,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  // ================= UPDATE PROFILE =================
   Future<void> updateProfile(String? imagePath) async {
     try {
       emit(AuthLoading());

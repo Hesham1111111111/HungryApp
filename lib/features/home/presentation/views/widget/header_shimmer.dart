@@ -20,7 +20,6 @@ class HeaderShimmer extends StatelessWidget {
             children: [
               Gap(30.h),
 
-              // logo shimmer box
               Container(
                 width: 90.w,
                 height: 35.h,
@@ -32,7 +31,6 @@ class HeaderShimmer extends StatelessWidget {
 
               Gap(8.h),
 
-              // name shimmer
               Container(
                 width: 120.w,
                 height: 14.h,
@@ -46,7 +44,6 @@ class HeaderShimmer extends StatelessWidget {
 
           const Spacer(),
 
-          // avatar shimmer
           Container(
             width: 70.r,
             height: 70.r,

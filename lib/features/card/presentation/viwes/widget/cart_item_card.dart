@@ -38,23 +38,20 @@ class CartItemCard extends StatelessWidget {
                   Gap(20),
                   BlocBuilder<RemoveCartCubit, RemoveCartState>(
                     builder: (context, state) {
-                      final isLoading = state is RemoveCartLoading;
+                      final isLoading =
+                          state is RemoveCartLoading &&
+                          state.itemId == orderItem.itemId;
 
                       return InkWell(
                         onTap: isLoading
                             ? null
                             : () async {
-                          print("Remove pressed for id: ${orderItem.itemId}");
-                          try {
-                            await context
-                                .read<RemoveCartCubit>()
-                                .removeItem(orderItem.itemId);
+                                await context
+                                    .read<RemoveCartCubit>()
+                                    .removeItem(orderItem.itemId);
 
-                            context.read<GetCartCubit>().getCart();
-                          } catch (e) {
-                            print("Error removing item: $e");
-                          }
-                        },
+                                context.read<GetCartCubit>().getCart();
+                              },
                         child: CustomButton(
                           text: isLoading ? "Removing..." : "Remove",
                           width: 154,
@@ -63,7 +60,6 @@ class CartItemCard extends StatelessWidget {
                       );
                     },
                   ),
-
                 ],
               ),
             ],

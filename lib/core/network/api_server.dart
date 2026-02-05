@@ -5,7 +5,6 @@ import 'package:hungry/core/network/dio_client.dart';
 class ApiServer {
   final DioClient _dioClient = DioClient();
 
-  // GET
   Future<dynamic> get({
     required String endpoint,
     Map<String, dynamic>? queryParameters,
@@ -21,10 +20,9 @@ class ApiServer {
     }
   }
 
-  // POST ✅ FIXED
   Future<dynamic> post({
     required String endpoint,
-    dynamic data, // ✅ أهم تعديل
+    dynamic data,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
@@ -39,10 +37,10 @@ class ApiServer {
     }
   }
 
-  // PUT ✅ FIXED
+
   Future<dynamic> put({
     required String endpoint,
-    dynamic data, // ✅
+    dynamic data,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
@@ -57,10 +55,9 @@ class ApiServer {
     }
   }
 
-  // DELETE
   Future<dynamic> delete({
     required String endpoint,
-    dynamic data, // ✅
+    dynamic data,
    dynamic queryParameters,
   }) async {
     try {

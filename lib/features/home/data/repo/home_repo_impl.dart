@@ -16,14 +16,13 @@ class HomeRepoImpl implements HomeRepo {
     try {
       final response = await apiServer.get(endpoint: ApiEndpoints.products);
 
-      // تحقق من نوع response
       if (response is Map<String, dynamic> && response.containsKey('data')) {
         final products = (response['data'] as List)
             .map((e) => ProductModel.fromJson(e))
             .toList();
         return Right(products);
       } else if (response is ApiError) {
-        return Left(response.message); // أو أي حقل عندك بيشرح الخطأ
+        return Left(response.message);
       } else {
         return Left('Unknown error occurred');
       }
