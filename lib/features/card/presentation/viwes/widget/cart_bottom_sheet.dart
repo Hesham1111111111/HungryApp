@@ -7,8 +7,9 @@ import '../../../../../core/resources/style.dart';
 import '../../../../../core/widget/custom_button.dart';
 
 class CartBottomSheet extends StatelessWidget {
-  const CartBottomSheet({super.key, required this.orderData });
-final  List<OrderData> orderData;
+  const CartBottomSheet({super.key, required this.orderData});
+
+  final List<OrderData> orderData;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,12 @@ final  List<OrderData> orderData;
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => CheckoutView(totalPrice: orderData.first.totalPrice, )),
+                MaterialPageRoute(
+                  builder: (_) => CheckoutView(
+                    totalPrice: orderData.first.totalPrice,
+
+                  ),
+                ),
               );
             },
             child: CustomButton(text: 'Checkout', width: 200.w, height: 70.h),

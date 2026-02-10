@@ -12,4 +12,5 @@ class ApiEndpoints {
   static const addCart = "/cart/add";
   static const cart = "/cart";
   static const removeCart = "/cart/remove/";
+  static const orders = "/orders";
 }

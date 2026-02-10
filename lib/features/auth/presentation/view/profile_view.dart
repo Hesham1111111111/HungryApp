@@ -66,6 +66,7 @@ class _ProfileViewState extends State<ProfileView> {
       ),
       bottomNavigationBar: ProfileActions(
         onEdit: () => authCubit.updateProfile(selectedImage),
+        
         onLogout: () async {
           await authCubit.logOut();
           Navigator.pushAndRemoveUntil(

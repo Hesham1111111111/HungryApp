@@ -8,7 +8,6 @@ import '../model/user_model.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  @override
   final ApiServer apiServer ;
 
   AuthRepoImpl({required this.apiServer});

@@ -3,20 +3,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/features/product/data/model/toppings_model.dart';
 
 class IngredientTileTopping extends StatelessWidget {
-  const IngredientTileTopping({super.key, required this.toppingsModel,required this.color});
+  const IngredientTileTopping({
+    super.key,
+    required this.toppingsModel,
+    required this.isSelected,
+  });
 
   final ToppingsModel toppingsModel;
-  final Color color;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
+      padding: EdgeInsets.symmetric(horizontal: 6.w),
       child: Container(
-        height: 117.h,
-        width: 90.w,
+        height: 122.h,
+        width: 100.w,
         decoration: BoxDecoration(
-          color: color,
+          color: isSelected ? Colors.green.withOpacity(0.2) : Colors.white,
           borderRadius: BorderRadius.circular(22.r),
           boxShadow: [
             BoxShadow(
@@ -25,6 +29,10 @@ class IngredientTileTopping extends StatelessWidget {
               offset: Offset(0, 3.h),
             ),
           ],
+          border: Border.all(
+            color: isSelected ? Colors.green : Colors.transparent,
+            width: 2,
+          ),
         ),
         child: Column(
           children: [
@@ -34,36 +42,46 @@ class IngredientTileTopping extends StatelessWidget {
                 height: 70.h,
                 width: double.infinity,
                 color: Colors.white,
-                child: Image.network(toppingsModel.image),
+                child: Image.network(
+                  toppingsModel.image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 12.h),
               decoration: BoxDecoration(
-                color: Color(0xff3C2F2F),
+                color: isSelected ? Colors.green : Color(0xff3C2F2F),
                 borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(22.r),
+                  bottom: Radius.circular(20.r),
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    toppingsModel.name,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w600,
+                  Flexible(
+                    child: Text(
+                      toppingsModel.name,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Container(
                     width: 20.w,
                     height: 20.h,
                     decoration: BoxDecoration(
-                      color: Color(0xffEF2A39),
+                      color: isSelected ? Colors.white : Color(0xffEF2A39),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.add, color: Colors.white, size: 14.sp),
+                    child: Icon(
+                      isSelected ? Icons.check : Icons.add,
+                      color: isSelected ? Colors.green : Colors.white,
+                      size: 14.sp,
+                    ),
                   ),
                 ],
               ),

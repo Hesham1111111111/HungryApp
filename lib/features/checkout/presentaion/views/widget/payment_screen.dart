@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/resources/app_colors.dart';
-import 'package:hungry/core/resources/style.dart';
+import '../../../../../core/resources/app_colors.dart';
+import '../../../../../core/resources/style.dart';
 import '../../../../../core/widget/custom_button.dart';
 import '../../../../../root.dart';
 
 class PaymentSuccessScreen extends StatelessWidget {
+
   const PaymentSuccessScreen({super.key});
 
   @override
@@ -45,16 +46,17 @@ class PaymentSuccessScreen extends StatelessWidget {
                 Text("Success !", style: AppStyle.text30),
                 SizedBox(height: 10.h),
                 Text(
-                  "Your payment was successful.\nA receipt for this purchase has been sent to your email.",
+                  "Your payment was successful.\nOrder ID: ",
                   textAlign: TextAlign.center,
                   style: AppStyle.text16,
                 ),
                 SizedBox(height: 20.h),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (_) => Root()),
+                          (route) => false,
                     );
                   },
                   child: CustomButton(

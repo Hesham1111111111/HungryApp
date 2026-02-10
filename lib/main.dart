@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hungry/core/di/service_locator.dart';
 
 import 'package:hungry/features/auth/manager/auth_cubit.dart';
@@ -10,6 +11,8 @@ import 'package:hungry/features/card/manager/get_cart_manager/get_cart__cubit.da
 import 'package:hungry/features/card/manager/remove_cart_manager/remove_cart_cubit.dart';
 import 'package:hungry/features/home/manager/categories_manager/categories_cubit.dart';
 import 'package:hungry/features/home/manager/home_manger/home_cubit.dart';
+import 'package:hungry/features/orderhistory/data/repo/sava_order_repo.dart';
+import 'package:hungry/features/orderhistory/manager/save_ordr_cubit.dart';
 import 'package:hungry/features/product/manager/side_option_manager/side_option_cubit.dart';
 import 'package:hungry/features/product/manager/toppings_manager/toppings_cubit.dart';
 import 'features/auth/data/repo/auth_repo.dart';
@@ -38,8 +41,7 @@ class HungryApp extends StatelessWidget {
         ),
 
         BlocProvider<HomeProductCubit>(
-          create: (_) =>
-              HomeProductCubit(getIt.get<HomeRepo>()),
+          create: (_) => HomeProductCubit(getIt.get<HomeRepo>()),
         ),
 
         BlocProvider<CategoriesCubit>(
@@ -69,6 +71,9 @@ class HungryApp extends StatelessWidget {
 
         BlocProvider<RemoveCartCubit>(
           create: (_) => RemoveCartCubit(getIt.get<RemoveCartRepo>()),
+        ),
+        BlocProvider<SaveOrderCubit>(
+          create: (_) => SaveOrderCubit(getIt.get<SaveOrderRepo>()),
         ),
       ],
       child: ScreenUtilInit(

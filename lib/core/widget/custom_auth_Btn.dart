@@ -15,7 +15,7 @@ class CustomAuthBtn extends StatelessWidget {
   final String text;
   final Color? textColor;
   final Color? color;
-  final LinearGradient? gradient; // 🌟 Gradient اختياري
+  final LinearGradient? gradient;
 
   @override
   Widget build(BuildContext context) {

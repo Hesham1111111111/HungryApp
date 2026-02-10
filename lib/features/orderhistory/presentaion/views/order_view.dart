@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/resources/images.dart';
 import 'package:hungry/core/widget/custom_button.dart';
+import 'package:hungry/features/card/manager/get_cart_manager/get_cart__cubit.dart';
+import 'package:hungry/features/card/manager/get_cart_manager/get_cart__state.dart';
+import 'package:hungry/features/orderhistory/presentaion/views/widget/order_historsy_data.dart';
+import 'package:hungry/features/orderhistory/presentaion/views/widget/order_history_shimmer.dart';
 import '../../../../core/resources/style.dart';
 
 class OrderView extends StatelessWidget {
@@ -18,41 +23,35 @@ class OrderView extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w),
-        child: ListView.builder(
-          itemCount: 3,
-          itemBuilder: (context, index) => Card(
-            color: Colors.white,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 20.h),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(AppImages.testImage3),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Hamburger Hamburger ", style: AppStyle.bold),
-                          Text("Qty : X3"),
-                          Text("Price : 54\$", style: AppStyle.bold),
-                        ],
-                      ),
-                      Gap(20.w),
-                    ],
+        child: BlocBuilder<GetCartCubit, GetCartState>(
+          builder: (context, state) {
+            if (state is GetCartLoading) {
+              return OrderHistoryShimmer();
+            } else if (state is GetCartSuccess) {
+              return ListView.builder(
+                itemCount: state.orders.length,
+                itemBuilder: (context, index) => Card(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                      vertical: 20.h,
+                    ),
+                    child: OrderHistoryData(
+                      orderData: state.orders[index].data,
+                      totalPrice: state.orders[index].data.first.totalPrice, // صححت هنا
+                    ),
                   ),
-                  Gap(20.h),
-                  CustomButton(
-                    text: "Order Again  ",
-                    color: Colors.grey.shade400,
-                    width: double.infinity,
-                    height: 55.h,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+                ),
+              );
+            } else if (state is GetCartError) {
+              return Center(child: Text(state.error));
+            } else {
+              return SizedBox();
+            }
+          },
+        )
+
       ),
     );
   }

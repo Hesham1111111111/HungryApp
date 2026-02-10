@@ -34,7 +34,7 @@ class TotalPriceSection extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (_) => PaymentSuccessScreen()),
               );

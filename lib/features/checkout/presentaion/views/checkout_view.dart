@@ -7,9 +7,9 @@ import 'package:hungry/features/checkout/presentaion/views/widget/order_summary.
 import 'package:hungry/features/checkout/presentaion/views/widget/payment_methods_section.dart';
 
 class CheckoutView extends StatefulWidget {
-  const CheckoutView({super.key, required this.totalPrice, });
-  final String totalPrice;
+  const CheckoutView({super.key, required this.totalPrice,});
 
+  final String totalPrice;
 
   @override
   State<CheckoutView> createState() => _CheckoutViewState();
@@ -29,7 +29,7 @@ class _CheckoutViewState extends State<CheckoutView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Gap(31.h),
-              OrderSummary(totalPrice: widget.totalPrice,),
+              OrderSummary(totalPrice: widget.totalPrice),
               Gap(20.h),
               PaymentMethodsSection(
                 selected: selected,
@@ -44,7 +44,10 @@ class _CheckoutViewState extends State<CheckoutView> {
           ),
         ),
       ),
-      bottomSheet: CheckoutBottomSheet(totalPrice:widget.totalPrice ,),
+      bottomSheet: CheckoutBottomSheet(
+        totalPrice: widget.totalPrice,
+
+      ),
     );
   }
 }
