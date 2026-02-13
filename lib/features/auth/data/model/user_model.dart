@@ -1,7 +1,7 @@
 class UserModel {
   final String name;
   final String email;
-  final String  image;
+  final String?  image;
   final String? token;
   final String? visa;
 

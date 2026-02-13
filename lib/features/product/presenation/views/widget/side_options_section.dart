@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/core/widget/custom_snack_bar_error.dart';
+import 'package:hungry/core/widget/custom_snack_bar_success.dart';
 import 'package:hungry/features/product/presenation/views/widget/product_details_shimmer/sideIngredient_details%20_shimmer.dart';
 import 'package:hungry/features/product/presenation/views/widget/sideIngredient_tile.dart';
 
 import '../../../../../core/resources/style.dart';
 import '../../../manager/side_option_manager/side_option_cubit.dart';
 import '../../../manager/side_option_manager/side_option_state.dart';
+
 class SideOptionsSection extends StatelessWidget {
   const SideOptionsSection({
     super.key,
@@ -33,8 +36,7 @@ class SideOptionsSection extends StatelessWidget {
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
-                  itemBuilder: (_, __) =>
-                  const SideIngredientTileShimmer(),
+                  itemBuilder: (_, __) => const SideIngredientTileShimmer(),
                 );
               }
 
@@ -44,8 +46,7 @@ class SideOptionsSection extends StatelessWidget {
                   itemCount: state.sideOptions.length,
                   itemBuilder: (context, index) {
                     final side = state.sideOptions[index];
-                    final isSelected =
-                    selectedSideOptions.contains(side.id);
+                    final isSelected = selectedSideOptions.contains(side.id);
 
                     return GestureDetector(
                       onTap: () => onTap(side.id),
@@ -59,7 +60,9 @@ class SideOptionsSection extends StatelessWidget {
               }
 
               if (state is ErrorSideOptionsState) {
-                return Center(child: Text(state.errorMassege));
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(customSnackBarError(state.errorMassege));
               }
 
               return const SizedBox();

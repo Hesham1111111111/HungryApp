@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/features/auth/presentation/view/widget/singup/sing_up_form.dart';
 class SignUpCard extends StatelessWidget {
   final Animation<Offset> slideAnimation;
@@ -14,14 +15,14 @@ class SignUpCard extends StatelessWidget {
         opacity: fadeAnimation,
         child: Container(
           padding: const EdgeInsets.all(25),
-          margin: const EdgeInsets.symmetric(horizontal: 20),
+          margin:  EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(30),
-            boxShadow: const [
+            borderRadius: BorderRadius.circular(30.r),
+            boxShadow:  [
               BoxShadow(
                 color: Colors.black26,
-                blurRadius: 15,
+                blurRadius: 15.r,
                 offset: Offset(0, 8),
               ),
             ],

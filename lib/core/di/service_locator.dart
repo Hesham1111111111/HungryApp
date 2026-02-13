@@ -25,7 +25,7 @@ void setup() {
   getIt.registerSingleton<AuthRepo>(
     AuthRepoImpl(apiServer: getIt<ApiServer>()),
   );
- getIt.registerSingleton<SaveOrderRepo>(
+  getIt.registerSingleton<SaveOrderRepo>(
     SaveOrderRepoImpl(apiServer: getIt<ApiServer>()),
   );
 

@@ -4,7 +4,7 @@ import '../shared_pref/shared_pref_helpers.dart';
 import 'api_endpoint.dart';
 
 class DioClient {
-  static const _defaultTimeout = Duration(seconds: 130);
+  static const _defaultTimeout = Duration(seconds: 40);
 
   final Dio _dio = Dio(
     BaseOptions(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/resources/app_colors.dart';
 import 'package:hungry/core/resources/images.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,7 +25,7 @@ class _SignUpViewState extends State<SignUpView>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 900),
     );
 
     slideAnimation = Tween<Offset>(
@@ -62,7 +63,7 @@ class _SignUpViewState extends State<SignUpView>
                   SvgPicture.asset(AppImages.logo, color: Colors.white),
                   Text(
                     "Welcome To our food App",
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                    style:  TextStyle(color: Colors.white, fontSize: 14.sp),
                   ),
                   const Gap(50),
                   SignUpCard(

@@ -5,7 +5,7 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:hungry/core/resources/app_colors.dart';
 import 'package:hungry/root.dart';
 import '../../../../../../core/widget/custom_auth_Btn.dart';
-import '../../../../../../core/widget/custom_snack_bar.dart';
+import '../../../../../../core/widget/custom_snack_bar_error.dart';
 import '../../../../../../core/widget/custom_textfield.dart';
 import '../../../../manager/auth_cubit.dart';
 import '../../../../manager/auth_state.dart';
@@ -28,7 +28,7 @@ class _SignUpFormState extends State<SignUpForm> {
         if (state is AuthError) {
           ScaffoldMessenger.of(
             context,
-          ).showSnackBar(customSnackBar(state.errorMessage));
+          ).showSnackBar(customSnackBarError(state.errorMessage));
         }
 
         if (state is AuthSuccess) {
@@ -97,7 +97,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   const Gap(30),
 
                   state is AuthLoading
-                      ? const CupertinoActivityIndicator()
+                      ? const CupertinoActivityIndicator(color: AppColors.primary,)
                       : CustomAuthBtn(
                           text: "Sign Up",
                           textColor: Colors.white,

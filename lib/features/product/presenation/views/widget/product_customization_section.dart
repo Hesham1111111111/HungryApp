@@ -4,6 +4,7 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/features/product/presenation/views/widget/side_options_section.dart';
 import 'package:hungry/features/product/presenation/views/widget/totppings_section.dart';
+import '../../../../../core/widget/custom_snack_bar_error.dart';
 import '../../../../../core/widget/custom_snack_bar_success.dart';
 import '../../../../card/data/model/add_to_cart_model/add_to_cart_model.dart';
 import '../../../../card/manager/add_to_cart_manager/ad_to_cart_cubit.dart';
@@ -70,7 +71,7 @@ class _ProductCustomizationSectionState
             if (state is CartErrorState) {
               ScaffoldMessenger.of(
                 context,
-              ).showSnackBar(SnackBar(content: Text(state.message)));
+              ).showSnackBar(customSnackBarError(state.message));
             }
           },
           builder: (context, state) {
@@ -103,7 +104,6 @@ class _ProductCustomizationSectionState
             );
           },
         ),
-
         Gap(20.h),
       ],
     );

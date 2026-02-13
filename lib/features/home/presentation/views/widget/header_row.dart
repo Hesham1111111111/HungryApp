@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
           radius: 35.r,
           child: ClipOval(
             child: Image.network(
-              userModel.image,
+              userModel.image??AppImages.profileTest,
               width: 70.r,
               height: 70.r,
               fit: BoxFit.cover,

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:hungry/features/auth/presentation/view/widget/login/password_field.dart';
 import 'package:hungry/root.dart';
-import '../../../../../../core/widget/custom_snack_bar.dart';
+import '../../../../../../core/widget/custom_snack_bar_error.dart';
 import '../../../../manager/auth_cubit.dart';
 import '../../../../manager/auth_state.dart';
 import 'email_field.dart';
@@ -53,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
     if (state is AuthError) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(customSnackBar(state.errorMessage));
+      ).showSnackBar(customSnackBarError(state.errorMessage));
     }
 
     if (state is AuthSuccess) {

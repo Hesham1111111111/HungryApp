@@ -23,10 +23,10 @@ class ApiExceptions {
             case 404:
               return ApiError(message: "Not Found");
             default:
-              return ApiError(message: "Server Error: $statusCode");
+              return ApiError(message: "Server Error , Please Try Again ");
           }
         }
-        return ApiError(message: "Bad Response: ${error.message}");
+        return ApiError(message: "Error , Please Try Again ");
       case DioErrorType.cancel:
         return ApiError(message: "Request was cancelled");
       case DioErrorType.unknown:
