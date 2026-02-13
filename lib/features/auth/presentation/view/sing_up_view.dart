@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/resources/app_colors.dart';
 import 'package:hungry/core/resources/images.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hungry/features/auth/presentation/view/widget/background.dart';

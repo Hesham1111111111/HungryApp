@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/features/card/data/model/get_cart_model/order_Item.dart';
-
-import '../../../../../core/resources/images.dart';
-import '../../../../../core/resources/style.dart';
+ import '../../../../../core/resources/style.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({super.key, required this.orderItem});

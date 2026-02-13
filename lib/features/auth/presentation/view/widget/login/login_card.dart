@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../login_view.dart';
 import 'login_form.dart';
 class LoginCard extends StatelessWidget {

@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/features/auth/presentation/view/widget/profile/profile_body.dart';
-import 'package:image_picker/image_picker.dart';
-
-import 'package:hungry/core/resources/app_colors.dart';
-import 'package:hungry/core/resources/images.dart';
 import 'package:hungry/features/auth/presentation/view/widget/profile/custom_profile_skeleton.dart';
 import 'package:hungry/features/auth/presentation/view/widget/profile/profile_actions.dart';
-import 'package:hungry/features/auth/presentation/view/widget/profile/profile_fields_form.dart';
-import 'package:hungry/features/auth/presentation/view/widget/profile/profile_image_picker.dart';
-
-import '../../../checkout/presentaion/views/widget/payment_method_tile.dart';
-import '../../../checkout/presentaion/views/widget/payment_methods_section.dart';
 import '../../manager/auth_cubit.dart';
 import '../../manager/auth_state.dart';
 import 'login_view.dart';

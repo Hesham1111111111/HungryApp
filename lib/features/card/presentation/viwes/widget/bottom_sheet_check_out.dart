@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/resources/app_colors.dart';
 import '../../../manager/get_cart_manager/get_cart__cubit.dart';
 import '../../../manager/get_cart_manager/get_cart__state.dart';

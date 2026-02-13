@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:hungry/features/auth/presentation/view/widget/login/sign_up_link.dart';
-
 import 'login_card.dart';
 import 'login_header.dart';
 class LoginContent extends StatelessWidget {
