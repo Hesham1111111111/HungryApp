@@ -20,32 +20,36 @@ import '../../features/product/data/repo/toppings_oppings_repo.dart';
 final GetIt getIt = GetIt.instance;
 
 void setup() {
-  getIt.registerSingleton<ApiServer>(ApiServer(dioClient: DioClient()));
 
-  getIt.registerSingleton<AuthRepo>(
-    AuthRepoImpl(apiServer: getIt<ApiServer>()),
-  );
-  getIt.registerSingleton<SaveOrderRepo>(
-    SaveOrderRepoImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<ApiServer>(
+        () => ApiServer(dioClient: DioClient()),
   );
 
-  getIt.registerSingleton<HomeRepo>(
-    HomeRepoImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<AuthRepo>(
+        () => AuthRepoImpl(apiServer: getIt<ApiServer>()),
   );
 
-  getIt.registerSingleton<CartRepo>(
-    CartRepoImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<SaveOrderRepo>(
+        () => SaveOrderRepoImpl(apiServer: getIt<ApiServer>()),
   );
 
-  getIt.registerSingleton<GetCartRepo>(
-    GetCartRepoImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<HomeRepo>(
+        () => HomeRepoImpl(apiServer: getIt<ApiServer>()),
   );
 
-  getIt.registerSingleton<RemoveCartRepo>(
-    RemoveCartImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<CartRepo>(
+        () => CartRepoImpl(apiServer: getIt<ApiServer>()),
   );
 
-  getIt.registerSingleton<ToppingsAndSoppingsRepo>(
-    ToppingsAndSoppingsRepoImpl(apiServer: getIt<ApiServer>()),
+  getIt.registerLazySingleton<GetCartRepo>(
+        () => GetCartRepoImpl(apiServer: getIt<ApiServer>()),
+  );
+
+  getIt.registerLazySingleton<RemoveCartRepo>(
+        () => RemoveCartImpl(apiServer: getIt<ApiServer>()),
+  );
+
+  getIt.registerLazySingleton<ToppingsAndSoppingsRepo>(
+        () => ToppingsAndSoppingsRepoImpl(apiServer: getIt<ApiServer>()),
   );
 }
