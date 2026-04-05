@@ -6,8 +6,8 @@ import 'package:hungry/core/resources/app_colors.dart';
 import 'package:hungry/features/auth/presentation/view/profile_view.dart';
 import 'package:hungry/features/home/presentation/views/home_view.dart';
 import 'package:hungry/features/orderhistory/presentaion/views/order_view.dart';
-import 'features/card/manager/get_cart_manager/get_cart__cubit.dart';
-import 'features/card/presentation/card_view.dart';
+import '../card/manager/get_cart_manager/get_cart__cubit.dart';
+import '../card/presentation/card_view.dart';
 
 class Root extends StatefulWidget {
   Root({super.key});

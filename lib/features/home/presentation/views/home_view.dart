@@ -23,7 +23,6 @@ class _HomeViewState extends State<HomeView> {
     context.read<HomeProductCubit>().getHomeProduct();
     context.read<AuthCubit>().getProfileData();
   }
-
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
